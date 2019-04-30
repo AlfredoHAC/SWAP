@@ -1,0 +1,97 @@
+/* General */
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    width: 95%;
+    margin: 0px auto; 
+    font-family: 'Source Sans Pro', sans-serif;
+    /* overflow: hidden; */
+}
+
+div {
+    overflow: hidden;
+}
+
+/* Header */
+header {
+    margin-bottom: 15px;
+}
+header h1 {
+    margin: 25px 0px 5px;
+}
+
+/* Content */
+.divHeader {
+    background-color: grey;
+    color: white;
+    cursor: pointer;
+    padding: 6px 0px;
+    width: 100%;
+}
+
+.active, .divHeader:hover {
+    background-color: rgb(74, 74, 75);
+    cursor: pointer;
+}
+
+.divHeader h2 {
+    font-weight: 600;
+    margin-left: 10px;
+    display: block;
+    float: left;
+}
+
+.divHeader h3 {
+    display: block;
+    float: right;
+    padding-top: 4px;
+    margin-right: 10px;
+}
+
+.divHeader > .hide {
+    display: none;
+}
+
+.divContent {
+    max-height: 0;
+    background-color: rgb(215, 214, 216);
+    transition: max-height 0.2s ease-in-out;
+}
+
+.contentTable {
+    padding: 10px;
+    width: 100%
+}
+
+.tabHeader {
+    background-color: rgb(135, 34, 182);
+    color:white;
+    font-weight: 600;
+    width: 30%;
+    padding: 3px 5px;
+}
+
+.tabContent {
+    background-color:  rgb(241, 240, 241);
+    font-weight: 400;
+    padding: 3px 5px;
+}
+
+.high {
+    background-color: red;
+    color: whitesmoke;
+}
+
+.medium {
+    background-color: orange;
+    color: black;
+}
+
+.small {
+    background-color: aqua;
+    color: black;
+}
+

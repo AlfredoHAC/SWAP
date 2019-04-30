@@ -1,59 +1,26 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
-import requests
+import requests as Requests
 
 class Knocker:
 
-    def knock(self, targetURL):
+    def __init__(self, url, user="", passwd=""):
+        self.session = Requests
+        self.url = url
+        
+        if user and passwd:
+            self.session = Requests.Session()
+            self.session.post(self.url,{"username":"admin","password":"password", "Login":"Login"})
+        
+    def knock(self, targetURL=None, data={}, method="get"):
+        if not targetURL:
+            targetURL = self.url
+
         try:
-            return requests.get(targetURL)
-        except requests.exceptions.ConnectionError:
+            if method.lower() == "post":
+                return self.session.post(targetURL, data=data)
+
+            return self.session.get(targetURL, params=data)
+        except Requests.exceptions.ConnectionError:
             pass
 
-class SubDomainDiscoverer(Knocker):
-
-    def __init__(self, domain, filePath="subdomain.list"):
-        self.filePath = filePath
-        self.domain = domain
-
-    def discover(self, verbose=True):
-        try:
-            file = open("wordlists/"+self.filePath, "r")
-            subDomainList = []
-
-            for line in file:
-                subDomainUrl = line.strip() + "." + self.domain
-                response = self.knock(subDomainUrl)
-                if response:
-                    subDomainList.append(subDomainUrl)
-                    if verbose:
-                        print("[+] Subdomain Found: " + subDomainUrl)
-
-            return subDomainList
-        except Exception as e:
-            print(e)
-            return None
-
-class PathFinder(Knocker):
-
-    def __init__(self, baseURL, filepath="path.list"):
-        self.filePath = filepath
-        self.baseURL = baseURL
-
-    def find(self, verbose=True):
-        try:
-            file = open("wordlists/"+self.filePath,"r")
-            pathList = []
-
-            for line in file:
-                pathURL = self.baseURL + "/" + line.strip()
-                response = self.knock(pathURL)
-                if response:
-                    pathList.append(pathURL)
-                    if verbose:
-                        print("[+] Path found: " + pathURL)
-
-            return pathList
-        except Exception as e:
-            print(e)
-            return None

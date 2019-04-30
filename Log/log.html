@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,700">
+    <title>SWAP - Log</title>
+</head>
+<body>
+    <header>
+        <h1>Resultados do Scan - SWAP</h1>
+        <hr>
+    </header>
+
+    <main>
+        <section id="summary">
+            <div class="divHeader">
+                <h2>Sumário</h2>
+                <h3>&#43;</h3>
+                <h3 class="hide">&#8722;</h3>
+            </div>
+            <div class="divContent">
+                <table id="summTable" class="contentTable">
+                    <tr>
+                        <th class="tabHeader">Domínio</th>
+                        <td class="tabContent">github.com</td>
+                    </tr>
+                    <tr>
+                        <th class="tabHeader">Quantidade de Vulnerabilidades Encontradas</th>
+                        <td class="tabContent">550</td>
+                    </tr>   
+                </table>
+            </div>
+        </section>
+        <section id="links">
+            <div class="divHeader">
+                <h2>Links Encontrados</h2>
+                <h3>&#43;</h3>
+                <h3 class="hide">&#8722;</h3>
+            </div>
+            <div class="divContent">
+                <table class="contentTable">
+                    <tr>
+                        <th class="tabHeader">Links Encontrados</th>
+                        <td class="tabContent">github.com</td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td class="tabContent">github.com</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        <section id="forms">
+            <div class="divHeader">
+                <h2>Formulários Extraídos</h2>
+                <h3>&#43;</h3>
+                <h3 class="hide">&#8722;</h3>
+            </div>
+            <div class="divContent">
+                <table class="contentTable">
+                    <tr>
+                        <th class="tabHeader">Formulários Extraídos</th>
+                        <td class="tabContent">github.com</td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td class="tabContent">github.com</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        <section id="vulns">
+            <div class="divHeader">
+                <h2>Vulnerabilidades Detectadas</h2>
+                <h3>&#43;</h3>
+                <h3 class="hide">&#8722;</h3>
+            </div>
+            <div class="divContent">
+                <table class="contentTable">
+                    <tr>
+                        <th class="tabHeader">Vulnerabilidade</th>
+                        <th class="tabHeader">Formulário</th>
+                    </tr>
+                    <tr>
+                        <td class="tabContent">github.com</td>
+                        <td class="tabContent">github.com</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        <section id="advanced">
+            <div class="divHeader">
+                <h2>Avançado</h2>
+                <h3>&#43;</h3>
+                <h3 class="hide">&#8722;</h3>
+            </div>
+            <div class="divContent">
+                <table class="contentTable">
+                    <tr>
+                        <th class="tabHeader">Vulnerabilidade</th>
+                        <td class="tabContent">github.com</td>
+                    </tr>
+                    <tr>
+                        <th class="tabHeader">Descrição</th>
+                        <td class="tabContent">github.com</td>
+                    </tr>
+                    <tr>
+                        <th class="tabHeader">Nível de ameaça</th>
+                        <td class="tabContent">github.com</td>
+                    </tr>
+                    <tr>
+                        <th class="tabHeader">Solução</th>
+                        <td class="tabContent">github.com</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </main>
+    
+    <script>
+
+        var headers = document.getElementsByClassName("divHeader");
+        var i;
+
+        for (i = 0; i < headers.length; i++) {
+                headers[i].addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.maxHeight) {
+                        this.children[1].className = ""
+                        this.children[2].className = "hide" 
+                        content.style.maxHeight = null;
+                    } else {
+                        this.children[1].className = "hide"
+                        this.children[2].className = "" 
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                    
+                });
+            }
+
+    </script>
+</body>
+</html>

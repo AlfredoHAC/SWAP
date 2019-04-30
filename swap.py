@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 from scorpion import Scorpion
 
@@ -8,16 +8,17 @@ from scorpion import Scorpion
 # url = "http://192.168.0.105/mutillidae/index.php?page=dns-lookup.php"
 # url = "http://192.168.0.105/mutillidae/index.php?page=text-file-viewer.php"
 # url = "http://192.168.0.105/mutillidae/index.php?page=add-to-your-blog.php"
-# url = "http://192.168.0.106/mutillidae/documentation/mutillidae-installation-on-xampp-win7.pdf"
-url = "http://192.168.0.105/mutillidae/"
+# url = "http://192.168.0.105/mutillidae/documentation/mutillidae-installation-on-xampp-win7.pdf"
+# url = "http://192.168.0.105/mutillidae/"
+url = "http://192.168.0.113/dvwa/login.php"
 
-crawler = Scorpion(url)
-# a = crawler.crawl("a", url)
+crawler = Scorpion(url, "admin", "password")
+crawler.extractLinks("http://192.168.0.113/dvwa/index.php")
+# print(crawler.extractForms())
+crawler.inject()
+crawler.createLog()
+
+# crawler = Scorpion(url)
 # crawler.extractLinks()
-# crawler.extractForms()
-
-# print(crawler.path)
-
-print(crawler.linkList)
-for form in crawler.__formList:
-    print(form)
+# print(crawler.extractForms("http://192.168.0.105/mutillidae/index.php?page=dns-lookup.php"))
+# crawler.inject()
