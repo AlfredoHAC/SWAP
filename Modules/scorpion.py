@@ -144,6 +144,7 @@ class Scorpion:
         </head>
         <body>
             <header>
+                <img src="scorpion_logo-01.png" alt="SWAP">
                 <h1>Resultados do Scan - SWAP</h1>
                 <hr>
             </header>
